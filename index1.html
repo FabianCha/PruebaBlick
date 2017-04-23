@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="css/estilo1s.css">
+	<script type="text/javascript" src="js/jquery.1.7.2.min.js"></script>
+	<script src="js/numeros.js"></script>
+	<!--fuientes-->
+	<link href="https://s3.amazonaws.com/assets.mockflow.com/app/styleguide/company/Ccc483f21e64e41199f504e4d14b4dec5/projects/c9dc567be10837d180a872c0b845a66e/fonts/fc2881b718523100e862563889ca3746.css" rel="stylesheet">
+	<link href="https://s3.amazonaws.com/assets.mockflow.com/app/styleguide/company/Ccc483f21e64e41199f504e4d14b4dec5/projects/c9dc567be10837d180a872c0b845a66e/fonts/141b45ec248f9e34faf09f77101b8ada.css" rel="stylesheet">
+
+	<title>Prueba</title>
+</head>
+<body>
+	
+	<!--inicio del menu-->
+
+	<header>
+		<div class="wrapper">
+			<nav>
+				<a href="#">Vendedores</a>
+				<a href="#">Compradores</a>
+				<a href="#">Registrate</a>
+				<a href="#">Inicia Secion</a>
+				<!-- Button trigger modal -->
+							<button type="button" class="btn btn-primary btnm" data-toggle="modal" data-target="#myModal" 
+							onclick="lee_json()">
+							  Contacto
+							</button>
+
+							<!-- Modal -->
+							<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+							  <div class="modal-dialog" role="document">
+							    <div class="modal-content">
+							      <div class="modal-header">
+							        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+							        <h4 class="modal-title" id="myModalLabel">Mostrando JSON</h4>
+							      </div>
+							      <div class="modal-body">
+							      	<div id="name1" ></div>
+							      	<div id="email"></div>
+									<div id="donde"></div>
+																        <!--Rescatando JSON-->
+								<script  type="application/javascript">
+        								 function lee_json() {
+									            $.getJSON("http://demo6292426.mockable.io/blickTest", function(datos) {
+									                document.getElementById('name1').innerHTML=("Nombre: " + datos['name']);
+									                document.getElementById('email').innerHTML=("Correo: " + datos["email"]);
+
+									            var html = '<table class="table table-hoverjsontab">';
+													html += '<tr><th>ID</th>';
+													html += '<th>Amigo</th>';
+													html += '<th>Numero</th></tr>';
+
+									            $.each(datos["friends"], function(i, item){
+							html += '<tr><th>' + item['id'] + '</th><th>' + item['name'] + '</th><th>' + item['age'] + '</th></tr>';   
+									                });
+									            html += '</table>';
+									         	$("#donde").html(html);
+									            });
+									         	
+									         	document.getElementById('donde').innerHTML=(html);
+
+									        }
+        																	
+									</script>
+								
+							      </div>
+							      <div class="modal-footer">
+							        <button type="button" class="btn btn-default" data-dismiss="modal">OK</button>
+							      </div>
+							    </div>
+							  </div>
+							</div>
+			</nav>
+		</div>
+	</header>
+
+
+
+<section class="row">
+	<div class="container-fluid">
+
+		<div class="col-xs-12 img1">
+			<header class="img img-responsive" alt="Responsive image">
+			<div class="header-content">
+				<div class="header-content-inner">
+					<h1 class="text-center">Vende o compra propiedades </h1>
+					<p class=" text-center">¡Sin comisión de corredores!</p>
+				</div>
+			</div>
+		</header>
+
+			
+			
+
+
+		</div>
+	<!-- 	<div class="row">
+			<div class="container">
+				<div class="vende col-xs-12 col-sm-12"><p class="text-center">Vende o compra propiedades</p></div>
+				<div class="sin col-xs-12 col-sm-12"><p class="text-center">¡Sin comisión de corredores!</p></div>
+			</div>	
+		</div> -->
+	</div>
+</section>	
+
+
+<div class="row">
+	<div class="como-fun col-xs-12 col-sm-12">
+		<p class="text-center">¿Cómo funciona?</p>
+	</div>
+</div>
+
+	<div class="container">
+		<div class="row ">
+			<div class="container main">
+			    <div class="thumbnail col-xs-12 col-sm-4 col-md-4 prim">
+			      <img src="img/logo.png" class="cost">
+			      <div class="caption">
+			        <h3 class="text-center">Costo fijo</h3>
+			      </div>
+			    </div>
+				
+			    <div class="thumbnail col-xs-12 col-sm-4 col-md-4">
+					<img src="img/vs.png" class="vs">
+			    </div>
+			  
+			    <div class="thumbnail col-xs-12 col-sm-4 col-md-4">
+			      <img src="img/senora.png" class="abue">
+			      <div class="caption">
+			        <h3 class="text-center">Comisión del  3% al 5%</h3>
+			      </div>
+
+			    </div>
+			</div>
+		</div>
+		<hr>
+	</div>
+
+	<div class="row">
+		<div class="container">
+			<div class="titu col-xs-12 col-sm-6 col-md-4"><p>Conoce</p></div>
+			<div class="color1 col-xs-12 col-sm-6 col-md-4"><p>Conoce y controla todos los pasos del proceso de compra o venta de tu propiedad</p></div>
+			<div class="color2 col-xs-12 col-sm-6 col-md-4"><p>Carecen de experiencia profesional y estructura de un proceso de compra-venta</p></div>
+		</div>
+		<hr>
+	</div>
+ 		
+ 	<div class="row">
+		<div class="container">
+			<div class="titu col-xs-12 col-sm-6 col-md-4"><p>Determina</p></div>
+			<div class="color1 col-xs-12 col-sm-6 col-md-4"><p>Determina el precio de tu propiedad con ayuda de nuestros análisis de mercado cuantitativos</p></div>
+			<div class="color2 col-xs-12 col-sm-6 col-md-4"><p>Su determinación de precio no cuenta con sustento y existe un conflicto te interés por determinar un precio bajo con el fin de vender tu propiedad</p></div>
+		</div>
+	</div>	
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<h1 class="text-center">¡Registrate!</h1>
+			</div>
+		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+				<div class="col-md-6 col-md-offset-5">
+					<button type="button" class="btn btn-primary btn-lg uno" onclick="nums()">Comprar</button>
+					<button type="button" class="btn btn-primary btn-lg dos">Vender</button>
+				</div>
+
+			</div>
+	</div>
+	<hr>
+
+
+
+	<div class="container">
+		<div class="row">
+			<div class="col-md-3">
+				<img src="img/logo.png" class="cost img-responsive" alt="Responsive image">
+				<p class="text-center">Ⓒ 2017</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+
+				<dl class="list text-center">
+  					<dd>Contacto</dd>
+  					<dd>Preguntas Frecuentes</dd>
+  					<dd>Acerca de nosotros</dd>
+				</dl>
+
+
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+
+				<p class="info text-center">
+					info@cierralo.com<br/>
+					(55) 4567 4323 <br/>
+
+				</p>
+			</div>
+			<div class="col-xs-12 col-sm-12 col-md-3">
+				<p class="regist text-center">Conviértete en vendedor</p>
+				<button class="btn btn-primary btn-lg regis text-center">Registrate</button>
+			</div>
+		</div>
+	</div>
+
+	
+
+	<div class="container">
+		<div class="row">
+			<div class="col-xs-6 col-md-6 "><p class="info text-center">Términos y condicion</p></div>
+			<div class="col-xs-6 col-md-6 "><p class="info text-center">Aviso de privacidad</p></div>
+		</div>
+	</div>
+	
+	<script src="js/jquery.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+</body>
+</html>
